@@ -15,7 +15,7 @@ class KBCGameGUI:
         self.question_var = StringVar()
         self.option_vars = [StringVar() for _ in range(4)]
         
-        random.shuffle(kbc.questions)  # Shuffle the questions
+        self.questions = random.sample(kbc.questions, len(kbc.questions))  # Shuffle the questions
         
         self.create_widgets()
         self.load_question()
@@ -34,16 +34,16 @@ class KBCGameGUI:
         self.quit_button.pack(pady=20)
 
     def load_question(self):
-        if self.current_question < len(kbc.questions):
-            question_data = kbc.questions[self.current_question]
-            self.question_var.set(question_data[0])
+        if self.current_question < len(self.questions):
+            question_data = self.questions[self.current_question]
+            self.question_var.set(f"Q{self.current_question + 1}: {question_data[0]}")
             for i in range(4):
                 self.option_vars[i].set(question_data[i + 1])
         else:
             self.end_game()
 
     def check_answer(self, selected_option):
-        correct_answer = kbc.questions[self.current_question][5]
+        correct_answer = self.questions[self.current_question][5]
         if selected_option + 1 == correct_answer:
             self.total_won = kbc.prize_levels[self.current_question]
             next_prize = kbc.prize_levels[self.current_question + 1] if self.current_question + 1 < len(kbc.prize_levels) else "the final prize"

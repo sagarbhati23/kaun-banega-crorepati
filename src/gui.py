@@ -33,18 +33,14 @@ class KBCGameGUI:
         self.quit_button = Button(self.master, text="Quit", command=self.quit_game, bg="#ff0000", fg="#ffffff", font=("Helvetica", 14), width=20)
         self.quit_button.pack(pady=20)
 
-        # ...existing code...
-    
-        def load_question(self):
-            if self.current_question < len(self.questions):
-                question_data = self.questions[self.current_question]
-                self.question_var.set(f"Q{self.current_question + 1}: {question_data[0].split(': ', 1)[1]}")
-                for i in range(4):
-                    self.option_vars[i].set(question_data[i + 1])
-            else:
-                self.end_game()
-    
-    # ...existing code...
+    def load_question(self):
+        if self.current_question < len(self.questions):
+            question_data = self.questions[self.current_question]
+            self.question_var.set(f"Q{self.current_question + 1}: {question_data[0].split(': ', 1)[1]}")
+            for i in range(4):
+                self.option_vars[i].set(question_data[i + 1])
+        else:
+            self.end_game()
 
     def check_answer(self, selected_option):
         correct_answer = self.questions[self.current_question][5]

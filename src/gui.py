@@ -58,6 +58,7 @@ class KBCGameGUI:
         self.master.quit()
 
     def quit_game(self):
+        messagebox.showinfo("Quit Game", f"You have finished the game with Rs. {self.total_won}")
         self.master.quit()
 
 if __name__ == "__main__":

@@ -1,5 +1,6 @@
 from tkinter import Tk, Label, Button, StringVar, messagebox
 import kbc
+import random
 
 class KBCGameGUI:
     def __init__(self, master):
@@ -13,6 +14,8 @@ class KBCGameGUI:
         
         self.question_var = StringVar()
         self.option_vars = [StringVar() for _ in range(4)]
+        
+        random.shuffle(kbc.questions)  # Shuffle the questions
         
         self.create_widgets()
         self.load_question()

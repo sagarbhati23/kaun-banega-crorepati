@@ -1,5 +1,5 @@
 import random
-
+# List of questions with options and correct answers
 questions = [
     ["Q1: What is the capital of France?", 
      "1. Berlin", "2. Madrid", "3. Paris", "4. Rome", 3],
@@ -301,17 +301,21 @@ questions = [
      "1. London", "2. Edinburgh", "3. Cardiff", "4. Belfast", 1]
 ]
 
+# List of prize levels for each question
 prize_levels = [
     1000, 2000, 3000, 5000, 10000, 20000, 40000, 80000, 
     160000, 320000, 640000, 1250000, 2500000, 5000000, 7500000, 
     10000000, 50000000, 70000000
 ]
+
+# List of milestone indices where levels change
 level_milestones = [8, 12, 15]  # Indices where levels change
 milestone_prizes = [160000, 2500000, 10000000]  # Prizes for each milestone
 
 total_won = 0
 current_level = 0
 
+# Function to play the game
 def play_game():
     global total_won, current_level
     random.shuffle(questions)
@@ -324,12 +328,14 @@ def play_game():
             if index == 0:
                 answer = input("Please enter your option: ")
             else:
-                answer = input("Please enter your option number or type 'quit' to exit: ")
+                answer = input("Please enter your option number or type 'quit' to exit: ") # Ask the user for an answer or to quit
             
+            # Check if the user wants to quit the game
             if answer.lower() == 'quit':
                 print(f"Congratulations, you have won Rs. {total_won}")
                 return
             
+            # Validate the user input
             try:
                 answer = int(answer)
                 if answer < 1 or answer > 4:
@@ -338,19 +344,22 @@ def play_game():
             except ValueError:
                 print("Invalid input. Please enter a number between 1 and 4, or type 'quit' to exit.")
         
+        # Check if the answer is correct
         if answer != question[5]:
             print("Wrong answer! Game over.")
             if index > level_milestones[current_level]:
-                total_won = milestone_prizes[current_level]
-            print(f"You have won Rs. {total_won}")
+                total_won = milestone_prizes[current_level] 
+            print(f"You have won Rs. {total_won}") # Print the total amount won
             break
+
+        # If the answer is correct
         else:
             total_won = prize_levels[index]
             print("Correct answer!")
             if index < len(questions) - 1:
                 print("Moving to the next question.")
             print(f"You have won Rs. {total_won}")
-            
+            # Check if the level has changed
             if index in level_milestones:
                 current_level += 1
 

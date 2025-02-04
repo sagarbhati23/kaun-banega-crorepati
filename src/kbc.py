@@ -1,3 +1,5 @@
+import random
+
 questions = [
     ["Q1: What is the capital of France?", 
      "1. Berlin", "2. Madrid", "3. Paris", "4. Rome", 3],
@@ -312,21 +314,29 @@ current_level = 0
 
 def play_game():
     global total_won, current_level
+    random.shuffle(questions)
     for index, question in enumerate(questions):
-        print(question[0])
+        print(f"Q{index + 1}: {question[0][4:]}")
         for i in range(1, 5):
             print(question[i])
         
-        if index == 0:
-            answer = input("Please enter your option: ")
-        else:
-            answer = input("Please enter your option number or type 'quit' to exit: ")
-        
-        if answer.lower() == 'quit':
-            print(f"Congratulations, you have won Rs. {total_won}")
-            break
-        
-        answer = int(answer)
+        while True:
+            if index == 0:
+                answer = input("Please enter your option: ")
+            else:
+                answer = input("Please enter your option number or type 'quit' to exit: ")
+            
+            if answer.lower() == 'quit':
+                print(f"Congratulations, you have won Rs. {total_won}")
+                return
+            
+            try:
+                answer = int(answer)
+                if answer < 1 or answer > 4:
+                    raise ValueError
+                break
+            except ValueError:
+                print("Invalid input. Please enter a number between 1 and 4, or type 'quit' to exit.")
         
         if answer != question[5]:
             print("Wrong answer! Game over.")

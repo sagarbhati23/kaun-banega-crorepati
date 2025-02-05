@@ -8,9 +8,7 @@ This project is a graphical user interface (GUI) implementation of the popular q
 kbc-gui
 ├── src
 │   ├── kbc.py          # Core logic of the KBC game
-│   ├── gui.py          # GUI implementation using a framework
-│   └── assets
-│       └── styles.css  # Styling for the GUI components
+│   └── gui.py          # GUI implementation using a framework
 ├── requirements.txt     # List of dependencies
 └── README.md            # Project documentation
 ```
@@ -19,11 +17,13 @@ kbc-gui
 
 1. Clone the repository:
    ```
-   git clone <repository-url>
-   cd kbc-gui
+   git clone https://github.com/sagarbhati23/kaun-banega-crorepati.git
    ```
 
-2. Install the required dependencies:
+2. Change the current directory:
+  ```cd kaun-banega-crorepati```
+
+3. Install the required dependencies:
    ```
    pip install -r requirements.txt
    ```
@@ -40,8 +40,7 @@ This will launch the GUI application where you can start playing the game.
 ## Dependencies
 
 The project requires the following libraries:
-- [Tkinter](https://docs.python.org/3/library/tkinter.html) or [PyQt](https://www.riverbankcomputing.com/software/pyqt/intro) (for GUI)
-- Any other libraries specified in `requirements.txt`
+- [Tkinter](https://docs.python.org/3/library/tkinter.html) (for GUI)
 
 ## Contributing
 

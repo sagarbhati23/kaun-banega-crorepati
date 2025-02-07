@@ -1,4 +1,4 @@
-# KBC GUI Game
+# Kaun Banega Crorepati GUI Game
 
 This project is a graphical user interface (GUI) implementation of the popular quiz game "Kaun Banega Crorepati" (KBC). The game allows users to answer questions and win virtual prizes based on their knowledge.
 

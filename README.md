@@ -22,8 +22,8 @@ kbc-gui
 
 2. Change the current directory:
   ```
-   cd kaun-banega-crorepati
-```
+  cd kaun-banega-crorepati
+  ```
 
 3. Install the required dependencies:
    ```

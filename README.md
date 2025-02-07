@@ -5,7 +5,7 @@ This project is a graphical user interface (GUI) implementation of the popular q
 ## Project Structure
 
 ```
-kbc-gui
+kaun-banega-crorepati
 ├── src
 │   ├── kbc.py          # Core logic of the KBC game
 │   └── gui.py          # GUI implementation using a framework
